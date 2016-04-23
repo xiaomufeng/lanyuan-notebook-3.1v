@@ -12,7 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import com.lanyuan.task.SpringTaskController;
+//import com.lanyuan.task.SpringTaskController;
 
 
 
@@ -25,10 +25,10 @@ import com.lanyuan.task.SpringTaskController;
 public class EmailUtils {
 
 	public static void main(String[] args) throws Exception {
-		Properties prop = new Properties();
-		InputStream in = SpringTaskController.class.getResourceAsStream("/config.properties");
-		prop.load(in);
-		EmailUtils.sendMail(prop.getProperty("fromEmail"), prop.getProperty("toEmail"), prop.getProperty("emailName"), prop.getProperty("emailPassword"), "１１１１１１１１", "１１１１１１１");
+//		Properties prop = new Properties();
+//		InputStream in = SpringTaskController.class.getResourceAsStream("/config.properties");
+//		prop.load(in);
+//		EmailUtils.sendMail(prop.getProperty("fromEmail"), prop.getProperty("toEmail"), prop.getProperty("emailName"), prop.getProperty("emailPassword"), "１１１１１１１１", "１１１１１１１");
 	}
 	/**
 	 * 发送邮件　(暂时只支持163邮箱发送)

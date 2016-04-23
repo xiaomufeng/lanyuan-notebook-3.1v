@@ -16,6 +16,8 @@
 package org.apache.ibatis.reflection.property;
 
 import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * @author Clinton Begin
@@ -74,4 +76,28 @@ public class PropertyTokenizer implements Iterable<PropertyTokenizer>, Iterator<
   public Iterator<PropertyTokenizer> iterator() {
     return this;
   }
+
+/* (non-Javadoc)
+ * @see java.util.Iterator#forEachRemaining(java.util.function.Consumer)
+ */
+public void forEachRemaining(Consumer<? super PropertyTokenizer> action) {
+    // TODO Auto-generated method stub
+    
+}
+
+/* (non-Javadoc)
+ * @see java.lang.Iterable#forEach(java.util.function.Consumer)
+ */
+public void forEach(Consumer<? super PropertyTokenizer> action) {
+    // TODO Auto-generated method stub
+    
+}
+
+/* (non-Javadoc)
+ * @see java.lang.Iterable#spliterator()
+ */
+public Spliterator<PropertyTokenizer> spliterator() {
+    // TODO Auto-generated method stub
+    return null;
+}
 }

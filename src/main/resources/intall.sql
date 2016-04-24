@@ -141,3 +141,66 @@ CREATE TABLE `ly_user_role` (
 INSERT INTO `ly_user_role` VALUES ('1', '2');
 INSERT INTO `ly_user_role` VALUES ('2', '3');
 INSERT INTO `ly_user_role` VALUES ('3', '1');
+
+-- ----------------------------
+-- Table structure for resource_repo
+-- ----------------------------
+
+DROP TABLE IF EXISTS `resource_repo`;
+CREATE TABLE `resource_repo` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `res_name` varchar(128) DEFAULT NULL,
+  `res_code` varchar(64) DEFAULT NULL,
+  `res_type` varchar(64) DEFAULT NULL,
+  `res_propertiy` varchar(128) DEFAULT NULL,
+  `res_register` varchar(16) DEFAULT NULL,
+  `register_time` timestamp NULL ,
+  `is_used` varchar(100) DEFAULT NULL,
+  `description` varchar(3) DEFAULT '0',
+  `update_time` timestamp NULL ,
+  `status` int(1) DEFAULT '1' COMMENT '删除状态0:可以使用1:使用中2',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8; 
+
+-- ----------------------------
+-- Table structure for computer_repo
+-- ----------------------------
+
+DROP TABLE IF EXISTS `computer_repo`;
+CREATE TABLE `computer_repo` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `res_name` varchar(20) DEFAULT NULL,
+  `res_code` varchar(20) DEFAULT NULL,
+  `res_type` varchar(100) DEFAULT NULL,
+  `cpu` varchar(32) DEFAULT NULL,
+  `display` varchar(32) DEFAULT NULL,
+  `disk` varchar(32) DEFAULT NULL,
+  `memory` varchar(32) DEFAULT NULL,
+  `res_register` varchar(100) DEFAULT NULL,
+  `register_time` timestamp NULL ,
+  `is_used` varchar(100) DEFAULT NULL,
+  `description` varchar(256) DEFAULT '0',
+  `update_time` timestamp NULL ,
+  `status` int(1) DEFAULT '1' COMMENT '删除状态0:可以使用1:使用中2',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8; 
+
+-- ----------------------------
+-- Table structure for res_apply
+-- ----------------------------
+DROP TABLE IF EXISTS `res_apply`;
+CREATE TABLE `res_apply` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `apply_time` varchar(20) DEFAULT NULL,
+  `apply_type` varchar(20) DEFAULT NULL,
+  `applyer` varchar(100) DEFAULT NULL,
+  `job_title` varchar(32) DEFAULT NULL,
+  `res_name` varchar(32) DEFAULT NULL,
+  `is_exceed` varchar(32) DEFAULT NULL,
+  `is_used` varchar(32) DEFAULT NULL,
+  `res_code` varchar(100) DEFAULT NULL,
+  `description` varchar(256) DEFAULT '0',
+  `update_time` timestamp NULL ,
+  `status` int(1) DEFAULT '1' COMMENT '删除0:使用中1:释放2',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8; 

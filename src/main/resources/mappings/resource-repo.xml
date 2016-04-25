@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanyuan.mapper.ResourceRepoMapper">
+	<!--mybatis ehcache缓存配置 -->
+	<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 <cache type="org.mybatis.caches.ehcache.LoggingEhcache" 
+		/> -->
+	<!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+	<!-- 以下与实体类的中字段一致 -->
+	
+	<resultMap id="BaseResultMap" type="com.lanyuan.entity.ResourceRepoFormMap" >
+      <id column="user_id" property="userId" jdbcType="CHAR" />
+      <result column="user_name" property="userName" jdbcType="VARCHAR" />
+      <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
+      <result column="user_salary" property="userSalary" jdbcType="DOUBLE" />
+    </resultMap>
+ 
+	<sql id="selectId">
+		id,
+		res_name,
+		res_code,
+		res_type,
+		res_propertiy,
+		res_register,
+		register_time,
+		is_used,
+		description,
+		update_time,
+		status
+	</sql>
+
+	<select id="findUserPage" resultType="com.lanyuan.entity.ResourceRepoFormMap">
+		select
+		<include refid="selectId" />
+		from resource_repo
+		where 1 = 1
+		<if test="accountName != null and accountName != ''">
+		and accountName like '%${accountName}%'
+		</if>
+		<if test="column != null">
+          order by ${column} ${sort}
+        </if>
+	</select>
+	
+</mapper>
